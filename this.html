@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>OutRay - Open Source ngrok Alternative</title>
+  <style>
+    body {
+    margin: 0;
+    font-family: system-ui, -apple-system, sans-serif;
+    background: linear-gradient(135deg, #000000 0%, #111111 50%, #2a2a2a 100%); /* dark purple-ish space feel */
+    color: #fff;
+    line-height: 1.5;
+    }
+    header {
+      background: #000;
+      border-bottom: 1px solid #222;
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    nav {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+    .nav-links a {
+      color: #aaa;
+      margin-left: 1.5rem;
+      text-decoration: none;
+    }
+    .nav-links a:hover {
+      color: white;
+    }
+    main {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 4rem 1rem;
+      text-align: center;
+    }
+    h1 {
+      font-size: 3.5rem;
+      margin: 1rem 0;
+    }
+    h1 span {
+      background: #222;
+      padding: 0.4rem 1rem;
+      border-radius: 12px;
+    }
+    .subtitle {
+      font-size: 1.4rem;
+      color: #aaa;
+      max-width: 700px;
+      margin: 1.5rem auto;
+    }
+    .buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin: 2rem 0;
+    }
+    .btn {
+      padding: 1rem 2rem;
+      border-radius: 999px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: 0.2s;
+    }
+    .btn-primary {
+      background: white;
+      color: black;
+    }
+    .btn-primary:hover {
+      background: #ddd;
+    }
+    .btn-secondary {
+      background: #111;
+      color: white;
+      border: 1px solid #333;
+    }
+    .btn-secondary:hover {
+      background: #222;
+    }
+    .terminal {
+      background: #0a0a0a;
+      border: 1px solid #222;
+      border-radius: 12px;
+      margin: 3rem auto;
+      max-width: 800px;
+      overflow: hidden;
+      font-family: 'Courier New', monospace;
+      font-size: 0.95rem;
+      color: #ccc;
+    }
+    .terminal-header {
+      background: #111;
+      padding: 0.6rem 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+    }
+    .red    { background: #ff5f56; }
+    .yellow { background: #ffbd2e; }
+    .green  { background: #27c93f; }
+    .terminal-body {
+      padding: 1.5rem;
+    }
+    .text-green { color: #00ff9d; }
+    .text-cyan  { color: #00d0ff; }
+    .text-yellow{ color: #ffd700; }
+    .text-fuchsia{ color: #ff00ff; }
+
+    section {
+      padding: 5rem 1rem;
+      text-align: center;
+    }
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      max-width: 1100px;
+      margin: 3rem auto;
+    }
+    .feature-card {
+      background: #111;
+      border: 1px solid #222;
+      border-radius: 12px;
+      padding: 2rem;
+    }
+    .protocols {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      max-width: 1100px;
+      margin: 3rem auto;
+    }
+    footer {
+      border-top: 1px solid #222;
+      padding: 2rem;
+      text-align: center;
+      color: #888;
+      font-size: 0.9rem;
+    }
+    @media (max-width: 768px) {
+      h1 { font-size: 2.8rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav>
+      <div class="logo">OutRay</div>
+      <div class="nav-links">
+        <a href="#">Documentation</a>
+        <a href="#">Pricing</a>
+        <a href="https://github.com/akinloluwami/outray" target="_blank">GitHub</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <h1>
+      <span>Expose</span> your local server<br>to the internet
+    </h1>
+
+    <p class="subtitle">
+      OutRay is an open-source ngrok alternative.<br>
+      Share your local development server securely via tunnels.
+    </p>
+
+    <div class="buttons">
+      <a href="/signup" class="btn btn-primary">Get Started Free</a>
+      <a href="#" class="btn btn-secondary">npm install -g outray</a>
+    </div>
+
+    <div class="terminal">
+      <div class="terminal-header">
+        <div class="dot red"></div>
+        <div class="dot yellow"></div>
+        <div class="dot green"></div>
+      </div>
+      <div class="terminal-body">
+        <div><span class="text-green">➜</span> <span class="text-cyan">~</span> outray 3000</div>
+        <div class="text-cyan">Connecting to OutRay...</div>
+        <div class="text-green">Linked to your local port 3000</div>
+        <div class="text-fuchsia">Tunnel ready: https://tunnel.outray.app</div>
+        <div class="text-yellow">Keep this running to keep your tunnel active.</div>
+      </div>
+    </div>
+  </main>
+
+  <section>
+    <h2 style="font-size: 2.8rem; margin-bottom: 3rem;">First-class developer experience</h2>
+    <div class="features">
+      <div class="feature-card">
+        <h3>Online in one line</h3>
+        <p>One command and you're live.</p>
+        <pre style="background:#000; padding:1rem; border-radius:8px; margin-top:1rem;">$ outray 3000</pre>
+      </div>
+      <div class="feature-card">
+        <h3>Real-time observability</h3>
+        <p>See live traffic and requests instantly.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Custom domains (coming soon)</h3>
+        <p>Bring your own domain with automatic SSL.</p>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:#0a0a0a;">
+    <h2 style="font-size: 2.8rem; margin-bottom: 3rem;">Any protocol, anywhere</h2>
+    <div class="protocols">
+      <div class="feature-card">
+        <h3>HTTP / HTTPS</h3>
+        <p>Web servers, APIs, webhooks</p>
+        <code>outray http 3000</code>
+      </div>
+      <div class="feature-card">
+        <h3>TCP</h3>
+        <p>Databases, SSH, RDP</p>
+        <code>outray tcp 5432</code>
+      </div>
+      <div class="feature-card">
+        <h3>UDP</h3>
+        <p>Game servers, streaming</p>
+        <code>outray udp 25565</code>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2 style="font-size: 2.8rem;">100% Open Source</h2>
+    <p style="font-size:1.2rem; max-width:700px; margin:2rem auto; color:#ccc;">
+      Inspect, contribute or self-host the entire platform.<br>
+      No vendor lock-in. Core features always free.
+    </p>
+    <div style="margin:2rem 0;">
+      <a href="https://github.com/akinloluwami/outray" target="_blank" class="btn btn-primary" style="margin-right:1rem;">Star on GitHub</a>
+      <a href="#" class="btn btn-secondary">Join Discord</a>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 OutRay. All rights reserved.<br>
+    <a href="https://github.com/akinloluwami/outray" style="color:#888; margin:0 1rem;">GitHub</a>
+  </footer>
+
+</body>
+</html>
